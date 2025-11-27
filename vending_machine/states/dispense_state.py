@@ -29,7 +29,7 @@ class DispenseState(VendingState):
             from .idle_state import IdleState
             context.set_state(IdleState())
         else:
-            # Не повинно трапитися, якщо перевірено в IdleState
+            # Не повинно статися, якщо перевірено в IdleState
             print("Помилка: Товар закінчився під час видачі.")
             context.cancel_transaction() # Повернення коштів
 

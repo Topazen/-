@@ -9,20 +9,20 @@ class VendingState(ABC):
 
     @abstractmethod
     def select_product(self, context, product_id: int):
-        """Handle product selection."""
+        """Обробка вибору товару."""
         pass
 
     @abstractmethod
     def insert_money(self, context, amount: float):
-        """Handle money insertion."""
+        """Обробка внесення коштів."""
         pass
 
     @abstractmethod
     def dispense_product(self, context):
-        """Handle dispensing the product."""
+        """Обробка видачі товару."""
         pass
 
     @abstractmethod
     def cancel_transaction(self, context):
-        """Handle cancellation of the current transaction."""
+        """Обробка скасування поточної транзакції."""
         pass

@@ -1,6 +1,6 @@
 from ..models.inventory import Inventory
 from ..states.base_state import VendingState
-from ..states.idle_state import IdleState # We will create this next
+from ..states.idle_state import IdleState # Початковий стан
 from ..services.payment_strategy import PaymentStrategy
 
 class VendingMachineContext:
@@ -22,7 +22,7 @@ class VendingMachineContext:
     def set_state(self, state: VendingState):
         """Перехід до нового стану."""
         self._state = state
-        print(f"\n[Система] Перехід до {type(state).__name__}") # Дебаг режим увімкнено
+        print(f"\n[Система] Перехід до {type(state).__name__}") # Режим налагодження увімкнено
 
     def get_inventory(self) -> Inventory:
         return self._inventory
@@ -39,7 +39,7 @@ class VendingMachineContext:
     def cancel_transaction(self):
         self._state.cancel_transaction(self)
 
-    # Context Data Management
+    # Управління даними контексту
     def set_selected_product(self, product_id: int):
         self._selected_product_id = product_id
 

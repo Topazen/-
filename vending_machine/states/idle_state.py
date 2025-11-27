@@ -1,6 +1,6 @@
 from .base_state import VendingState
-# Local imports to avoid circular dependency issues at module level
-# We will import transition targets inside methods
+# Локальні імпорти для уникнення проблем із циклічними залежностями на рівні модуля
+# Імпорт цілей переходу виконуємо всередині методів
 
 class IdleState(VendingState):
     """

@@ -24,7 +24,7 @@ class Product(ABC):
 
     @abstractmethod
     def get_description(self) -> str:
-        """Returns a description of the product."""
+        """Повертає опис товару."""
         pass
 
     def __str__(self):

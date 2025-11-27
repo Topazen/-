@@ -3,10 +3,10 @@ from docx.shared import Pt, Cm, Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 import os
 
-# Create a new Document
+# Створити новий документ
 doc = Document()
 
-# Set up document margins
+# Налаштувати поля документа
 sections = doc.sections
 for section in sections:
     section.top_margin = Cm(2)
@@ -14,7 +14,7 @@ for section in sections:
     section.left_margin = Cm(3)
     section.right_margin = Cm(2.5)
 
-# Title
+# Заголовок
 title = doc.add_paragraph("ПРОТОКОЛ РОБОТИ ПРОГРАМИ")
 title.alignment = WD_ALIGN_PARAGRAPH.CENTER
 title.runs[0].bold = True
@@ -28,7 +28,7 @@ subtitle.runs[0].font.name = 'Times New Roman'
 
 doc.add_paragraph()
 
-# Section 1: System Start
+# Розділ 1: Запуск системи
 heading1 = doc.add_paragraph("1. Запуск системи")
 heading1.runs[0].bold = True
 heading1.runs[0].font.size = Pt(14)
@@ -39,7 +39,7 @@ p.runs[0].font.size = Pt(14)
 p.runs[0].font.name = 'Times New Roman'
 p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
-# Add first screenshot
+# Додати перший скріншот
 img_path1 = r"C:\Users\nelox\.gemini\antigravity\brain\c686f7b8-872e-4a7f-ad27-6f83ba57b924\vending_start_screen_1764038866097.png"
 if os.path.exists(img_path1):
     doc.add_picture(img_path1, width=Inches(5.5))
@@ -54,7 +54,7 @@ caption.runs[0].italic = True
 
 doc.add_paragraph()
 
-# Section 2: Product Selection
+# Розділ 2: Вибір товару
 heading2 = doc.add_paragraph("2. Сценарій 1: Успішна купівля товару")
 heading2.runs[0].bold = True
 heading2.runs[0].font.size = Pt(14)
@@ -82,7 +82,7 @@ p.runs[0].font.size = Pt(14)
 p.runs[0].font.name = 'Times New Roman'
 p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
-# Add second screenshot
+# Додати другий скріншот
 img_path2 = r"C:\Users\nelox\.gemini\antigravity\brain\c686f7b8-872e-4a7f-ad27-6f83ba57b924\vending_purchase_success_1764038879565.png"
 if os.path.exists(img_path2):
     doc.add_picture(img_path2, width=Inches(5.5))
@@ -97,7 +97,7 @@ caption.runs[0].italic = True
 
 doc.add_paragraph()
 
-# Section 3: Cancel Transaction
+# Розділ 3: Скасування транзакції
 heading3 = doc.add_paragraph("3. Сценарій 2: Скасування транзакції")
 heading3.runs[0].bold = True
 heading3.runs[0].font.size = Pt(14)
@@ -126,7 +126,7 @@ p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
 doc.add_paragraph()
 
-# Section 4: Insufficient Funds
+# Розділ 4: Недостатньо коштів
 heading4 = doc.add_paragraph("4. Сценарій 3: Недостатньо коштів")
 heading4.runs[0].bold = True
 heading4.runs[0].font.size = Pt(14)
@@ -154,7 +154,7 @@ p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
 doc.add_paragraph()
 
-# Section 5: Admin Mode
+# Розділ 5: Режим адміністратора
 heading5 = doc.add_paragraph("5. Сценарій 4: Адміністрування")
 heading5.runs[0].bold = True
 heading5.runs[0].font.size = Pt(14)
@@ -185,17 +185,17 @@ p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
 doc.add_paragraph()
 
-# Section 6: Test Results
+# Розділ 6: Результати тестування
 heading6 = doc.add_paragraph("6. Результати тестування")
 heading6.runs[0].bold = True
 heading6.runs[0].font.size = Pt(14)
 heading6.runs[0].font.name = 'Times New Roman'
 
-# Create table
+# Створити таблицю
 table = doc.add_table(rows=5, cols=3)
 table.style = 'Table Grid'
 
-# Header row
+# Заголовок таблиці
 header_cells = table.rows[0].cells
 header_cells[0].text = '№'
 header_cells[1].text = 'Сценарій'
@@ -206,7 +206,7 @@ for cell in header_cells:
     cell.paragraphs[0].runs[0].font.size = Pt(14)
     cell.paragraphs[0].runs[0].font.name = 'Times New Roman'
 
-# Data rows
+# Рядки даних
 scenarios = [
     ('1', 'Успішна купівля товару', 'Пройдено ✓'),
     ('2', 'Скасування транзакції', 'Пройдено ✓'),
@@ -226,7 +226,7 @@ for i, (num, scenario, result) in enumerate(scenarios, 1):
 
 doc.add_paragraph()
 
-# Conclusion
+# Висновки
 heading7 = doc.add_paragraph("7. Висновки")
 heading7.runs[0].bold = True
 heading7.runs[0].font.size = Pt(14)
@@ -256,7 +256,7 @@ p.runs[0].font.size = Pt(14)
 p.runs[0].font.name = 'Times New Roman'
 p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
-# Save document
+# Зберегти документ
 output_file = r'C:\Users\nelox\Desktop\Курсач\Протокол_роботи.docx'
 doc.save(output_file)
 
